@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon Design - Kadeřnictví Praha 9</title>
+    <meta name="description"
+        content="Profesionální kadeřnictví Salon Design v Praze 9 - Kbely. Dámské, pánské i dětské střihy, barvení, melíry a URS hloubkové ošetření vlasů.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    ...
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="#">SALON <span>DESIGN</span></a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home">Domů</a></li>
+                    <li><a href="#about">O nás</a></li>
+                    <li><a href="#services">Služby</a></li>
+                    <li><a href="#prices">Ceník</a></li>
+                    <li><a href="#gallery">Fotogalerie</a></li>
+                    <li><a href="#reservation">Objednávka</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+                <div class="mobile-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Vítejte v Salonu Design</h1>
+                <p>Spokojený zákazník, který se rád vrací – to je naše filozofie.</p>
+                <div class="hero-buttons">
+                    <a href="#prices" class="btn btn-primary">Ceník</a>
+                    <a href="#reservation" class="btn btn-secondary">Online Rezervace</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>O našem salonu</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="about-content">
+                    <p>V našem kadeřnictví se zaměřujeme na to, abychom pro vás našli to nejlepší řešení na míru. Každý
+                        klient je pro nás jedinečný. Nabízíme profesionální služby v oblasti péče o vlasy, ať už
+                        potřebujete nový střih, barvu nebo regenerační kúru.</p>
+                    <p>Pracujeme výhradně s kvalitní italskou kadeřnickou kosmetikou značek <strong>Z.ONE
+                            concept</strong> (Milk Shake) a <strong>FANOLA</strong>. Pravidelně se účastníme školení a
+                        sledujeme nejnovější trendy, abychom vám mohli nabídnout ty nejlepší služby.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section-padding bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Naše Služby</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-cut"></i>
+                        <h3>Dámské, Pánské a Dětské stříhání</h3>
+                        <p>Kompletní péče pro celou rodinu. Od jednoduchých úprav až po kreativní střihy.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-paint-brush"></i>
+                        <h3>Barvení a Melírování</h3>
+                        <p>Profesionální techniky barvení, které podtrhnou vaši osobnost a rozjasní váš účes.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-magic"></i>
+                        <h3>URS System - Hloubkové Ošetření</h3>
+                        <p>Ultrazvuková žehlička pro hloubkovou regeneraci vlasového vlákna. Vlasy jsou lesklejší,
+                            pružnější a zdravější.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-heart"></i>
+                        <h3>Svatební a Společenské Účesy</h3>
+                        <p>Připravíme vás na váš velký den. Nabízíme zkoušky účesů i kompletní svatební servis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Price List Section -->
+        <section id="prices" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Ceník Služeb</h2>
+                    <p class="subtitle">Platný od 1.1.2025</p>
+                    <div class="underline"></div>
+                </div>
+
+                <div class="prices-wrapper">
+
+                    <!-- Short Hair -->
+                    <div class="price-category">
+                        <h3>Krátké vlasy (do 10 cm)</h3>
+                        <ul class="price-list">
+                            <li><span>Foukaná</span> <span>480 Kč</span></li>
+                            <li><span>Stříhání + Foukaná</span> <span>580 - 650 Kč</span></li>
+                            <li><span>Barva, střih, foukaná</span> <span>880 - 980 Kč</span></li>
+                            <li><span>Melír, střih, foukaná (1 odměrka)</span> <span>980 - 1180 Kč</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Medium Hair -->
+                    <div class="price-category">
+                        <h3>Polodlouhé vlasy (po ramena)</h3>
+                        <ul class="price-list">
+                            <li><span>Foukaná</span> <span>580 Kč</span></li>
+                            <li><span>Stříhání + Foukaná</span> <span>680 - 780 Kč</span></li>
+                            <li><span>Barva, střih, foukaná</span> <span>980 - 1180 Kč</span></li>
+                            <li><span>Melír, střih, foukaná (1,5 odměrky)</span> <span>1480 - 1680 Kč</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Long Hair -->
+                    <div class="price-category">
+                        <h3>Dlouhé vlasy (pod ramena)</h3>
+                        <ul class="price-list">
+                            <li><span>Foukaná</span> <span>680 Kč</span></li>
+                            <li><span>Stříhání + Foukaná</span> <span>780 - 880 Kč</span></li>
+                            <li><span>Barva, střih, foukaná</span> <span>1460 - 1660 Kč</span></li>
+                            <li><span>Melír, střih, foukaná (2 odměrky)</span> <span>1480 - 2800 Kč</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Other Services -->
+                    <div class="price-category">
+                        <h3>Ostatní služby</h3>
+                        <ul class="price-list">
+                            <li><span>Pánský střih (klasika/kreativní)</span> <span>280 / od 350 Kč</span></li>
+                            <li><span>Pánský střih strojkem (1 nástavec)</span> <span>200 Kč</span></li>
+                            <li><span>Dětský střih</span> <span>200 Kč</span></li>
+                            <li><span>Žehlení / Kulmování</span> <span>200 - 400 Kč</span></li>
+                            <li><span>Společenský účes</span> <span>980 - 1200 Kč</span></li>
+                            <li><span>Svatební účes (zkouška + konzultace)</span> <span>1500 Kč</span></li>
+                            <li><span>Svatební účes (v den svatby)</span> <span>1800 Kč</span></li>
+                            <li><span>Svatební balíček (zkouška + den svatby)</span> <span>2800 Kč</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- URS System -->
+                    <div class="price-category highlighted">
+                        <h3>URS System (Hloubková regenerace)</h3>
+                        <ul class="price-list">
+                            <li><span>Krátké vlasy</span> <span>300 Kč</span></li>
+                            <li><span>Polodlouhé vlasy</span> <span>400 Kč</span></li>
+                            <li><span>Dlouhé vlasy</span> <span>500 Kč</span></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <p class="price-note">* Ceny jsou orientační a mohou se lišit dle náročnosti a spotřeby materiálu.</p>
+            </div>
+        </section>
+
+        <!-- Reservation Section (Wizard) -->
+        <section id="reservation" class="section-padding bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Online Objednávka</h2>
+                    <p class="subtitle">Rezervujte si svůj termín pohodlně online</p>
+                    <div class="underline"></div>
+                </div>
+
+                <div class="wizard-container">
+                    <!-- Progress Bar -->
+                    <div class="wizard-progress">
+                        <div class="step-indicator active" data-step="1">1. O Vás</div>
+                        <div class="step-indicator" data-step="2">2. Termín</div>
+                        <div class="step-indicator" data-step="3">3. Služba</div>
+                    </div>
+
+                    <form id="booking-form">
+                        <!-- Step 1: Contact Info -->
+                        <div class="form-step active" id="step-1">
+                            <h3>Kontaktní údaje</h3>
+                            <div class="form-group">
+                                <label for="name">Jméno *</label>
+                                <input type="text" id="name" required placeholder="Vaše jméno">
+                            </div>
+                            <div class="form-group">
+                                <label for="surname">Příjmení *</label>
+                                <input type="text" id="surname" required placeholder="Vaše příjmení">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefon *</label>
+                                <input type="tel" id="phone" required placeholder="+420 123 456 789">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" required placeholder="vas@email.cz">
+                            </div>
+                            <div class="form-group">
+                                <label for="people-count">Počet osob</label>
+                                <select id="people-count">
+                                    <option value="1" selected>1 osoba</option>
+                                    <option value="2">2 osoby</option>
+                                    <option value="3">3 osoby</option>
+                                    <option value="4">4 osoby</option>
+                                    <option value="5">5 osob</option>
+                                </select>
+                            </div>
+                            <div class="wizard-buttons right">
+                                <button type="button" class="btn btn-primary next-btn">Pokračovat</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Date & Time (Now Step 2) -->
+                        <div class="form-step" id="step-2">
+                            <h3>Termín Návštěvy</h3>
+                            <div class="date-selection-grid">
+                                <div class="calendar-mockup">
+                                    <label>Preferované datum</label>
+                                    <input type="date" id="date-picker">
+                                </div>
+                                <div class="time-slots" id="time-slots">
+                                    <p class="placeholder-text">Vyberte datum pro zobrazení časů.</p>
+                                    <!-- Time slots injected by JS -->
+                                </div>
+                            </div>
+                            <div class="wizard-buttons">
+                                <button type="button" class="btn btn-secondary prev-btn">Zpět</button>
+                                <button type="button" class="btn btn-primary next-btn" disabled
+                                    id="step-2-next">Pokračovat</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Service Selection (Now Step 3) -->
+                        <div class="form-step" id="step-3">
+                            <h3>Výběr Služby</h3>
+                            <!-- Dynamic Container for Person 1..N -->
+                            <div id="services-dynamic-container">
+                                <!-- Injected by JS -->
+                            </div>
+
+                            <div class="form-group">
+                                <label for="note">Poznámka k rezervaci (nepovinné)</label>
+                                <textarea id="note" rows="3"
+                                    placeholder="Např. specifické požadavky pro další osoby..."></textarea>
+                            </div>
+
+                            <div class="summary-box hidden" id="summary-box">
+                                <h4>Souhrn rezervace</h4>
+                                <p id="summary-text"></p>
+                            </div>
+
+                            <div class="wizard-buttons">
+                                <button type="button" class="btn btn-secondary prev-btn">Zpět</button>
+                                <button type="submit" class="btn btn-primary submit-btn" disabled
+                                    id="submit-booking">Odeslat Rezervaci</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Fotogalerie</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="gallery-grid">
+                    <!-- Interior -->
+                    <div class="gallery-item">
+                        <img src="https://www.salondesign.cz/img/original/12/p2110224.jpg" alt="Interiér Salonu">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://www.salondesign.cz/img/original/369/dsc04872.jpg" alt="Kadeřnické křeslo">
+                    </div>
+                    <!-- Work -->
+                    <div class="gallery-item">
+                        <img src="https://www.salondesign.cz/img/original/350/1391853409-ombre-hair-ledova-blond.jpg"
+                            alt="Ombre Hair">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://www.salondesign.cz/img/original/393/1527144076019n.jpg"
+                            alt="Společenský účes">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://www.salondesign.cz/img/original/392/462565979_432063569526904_3787047096428322802_n.jpg"
+                            alt="Barvení">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://www.salondesign.cz/img/original/13/p2110225.jpg" alt="Detail interiéru">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-padding bg-dark">
+            <div class="container">
+                <div class="section-header light-text">
+                    <h2>Kontakt</h2>
+                    <div class="underline"></div>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Adresa</h4>
+                                <p>Katusická 669/79<br>Praha 9 - Kbely, 197 00</p>
+                                <small>(vchod u parku/altánku)</small>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>Telefon</h4>
+                                <p><a href="tel:286855998">286 855 998</a></p>
+                                <small>Objednávky pouze telefonicky</small>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p><a href="mailto:dendani@seznam.cz">dendani@seznam.cz</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="opening-hours">
+                        <h4>Otevírací doba</h4>
+                        <!-- Women -->
+                        <div class="hours-block">
+                            <h5>Dámské</h5>
+                            <ul>
+                                <li><span>Po - Čt:</span> 10:00 – 19:00</li>
+                                <li><span>Pá:</span> 10:00 – 15:00</li>
+                            </ul>
+                        </div>
+                        <!-- Men & Kids -->
+                        <div class="hours-block">
+                            <h5>Pánské a Dětské</h5>
+                            <ul>
+                                <li><span>Po:</span> 10:00 – 17:00</li>
+                                <li><span>Út:</span> 13:00 – 19:00</li>
+                                <li><span>St:</span> 10:00 – 19:00</li>
+                                <li><span>Čt:</span> 10:00 – 17:00</li>
+                                <li><span>Pá:</span> ZAVŘENO</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2025 Salon Design. Všechna práva vyhrazena.</p>
+            <div class="social-links">
+                <!-- Add social links if they had them, sticking to extracted info for now -->
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
