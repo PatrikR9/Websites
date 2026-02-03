@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denní Menu - RYBÁRNIČKA LAHŮDKY U PETRA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Interactive Menu Styles */
+        body {
+            overflow-x: hidden;
+        }
+
+        .menu-intro {
+            font-style: italic;
+            background: #fff3f3;
+            padding: 20px;
+            border-left: 5px solid var(--primary-color);
+            margin-bottom: 30px;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        /* Scroll Snap Container */
+        .week-menu-container {
+            height: 70vh;
+            /* Fixed height for snapping */
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            padding: 20px;
+            background: rgba(44, 62, 80, 0.02);
+            border-radius: var(--border-radius);
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-color) transparent;
+        }
+
+        .week-menu-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .week-menu-container::-webkit-scrollbar-thumb {
+            background-color: var(--primary-color);
+            border-radius: 10px;
+        }
+
+        .day-menu {
+            height: 100%;
+            /* Fill container for 1:1 snapping */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            scroll-snap-align: center;
+            scroll-snap-stop: always;
+            padding: 40px;
+            background: #fff;
+            margin-bottom: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transform: scale(0.9) translateY(20px);
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* The "Pop-up" effect */
+        .day-menu.in-view {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+
+        .day-menu h3 {
+            color: var(--primary-color);
+            border-bottom: 2px dashed var(--accent-light);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            background: var(--bg-color);
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:hover {
+            background: var(--accent-light);
+            transform: translateX(5px);
+        }
+
+        .name {
+            font-weight: 600;
+            color: var(--secondary-color);
+            padding-right: 20px;
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--primary-color);
+            min-width: 70px;
+            text-align: right;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hints */
+        .scroll-hint {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .week-menu-container {
+                height: 80vh;
+                padding: 10px;
+            }
+
+            .day-menu {
+                padding: 20px;
+            }
+
+            .day-menu h3 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo_new.png" alt="Rybárnička Logo">
+                </a>
+            </div>
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Úvod</a></li>
+                    <li><a href="menu.html" class="active nav-link">Denní Menu</a></li>
+                    <li><a href="kurzy.html" class="nav-link">Kurzy Vaření</a></li>
+                    <li><a href="poukazy.html" class="nav-link">Poukazy</a></li>
+                    <li><a href="fotoalbum.html" class="nav-link">Fotoalbum</a></li>
+                    <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="content-section">
+            <h1>Denní Menu</h1>
+
+            <div class="menu-intro">
+                <p>U nás vaříme z poctivých surovin, bez chemie a s láskou. Používáme mořskou sůl a čerstvé bylinky.</p>
+            </div>
+
+            <div class="scroll-hint">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                </svg>
+                Rolujte dolů pro další dny
+            </div>
+
+            <div class="week-menu-container" id="menuScroll">
+
+                <!-- Pondělí -->
+                <div class="day-menu">
+                    <h3>Pondělí 26.1.</h3>
+                    <div class="menu-item"><span class="name">Italská rajčatová s parmazánem</span> <span
+                            class="price">59,-</span></div>
+                    <div class="menu-item"><span class="name">Zapečené brambory se slaninou</span> <span
+                            class="price">159,-</span></div>
+                    <div class="menu-item"><span class="name">Kuskus s kuřecími řízečky</span> <span
+                            class="price">159,-</span></div>
+                    <div class="menu-item"><span class="name">Rybí karbanátky s přílohou</span> <span
+                            class="price">139,-</span></div>
+                </div>
+
+                <!-- Úterý -->
+                <div class="day-menu">
+                    <h3>Úterý 27.1.</h3>
+                    <div class="menu-item"><span class="name">Zelňačka z uzených žeber</span> <span
+                            class="price">59,-</span></div>
+                    <div class="menu-item"><span class="name">Rybí placičky s dýňovým pyré</span> <span
+                            class="price">169,-</span></div>
+                    <div class="menu-item"><span class="name">Francouzský cibulový koláč</span> <span
+                            class="price">159,-</span></div>
+                    <div class="menu-item"><span class="name">Rybí karbanátky s přílohou</span> <span
+                            class="price">139,-</span></div>
+                </div>
+
+                <!-- Středa -->
+                <div class="day-menu">
+                    <h3>Středa 28.1.</h3>
+                    <div class="menu-item"><span class="name">Oblíbený boršč</span> <span class="price">69,-</span>
+                    </div>
+                    <div class="menu-item"><span class="name">Holandský řízek s kaší</span> <span
+                            class="price">159,-</span></div>
+                    <div class="menu-item"><span class="name">Toskánské kuře se špenátem</span> <span
+                            class="price">159,-</span></div>
+                    <div class="menu-item"><span class="name">Rybí karbanátky s přílohou</span> <span
+                            class="price">139,-</span></div>
+                </div>
+
+                <!-- Čtvrtek -->
+                <div class="day-menu">
+                    <h3>Čtvrtek 29.1.</h3>
+                    <div class="menu-item"><span class="name">Krkonošská bramboračka</span> <span
+                            class="price">59,-</span></div>
+                    <div class="menu-item"><span class="name">Španělský ptáček s H.K.</span> <span
+                            class="price">159,-</span></div>
+                    <div class="menu-item"><span class="name">Losos s medem a hořčicí</span> <span
+                            class="price">159,-</span></div>
+                    <div class="menu-item"><span class="name">Rybí karbanátky s přílohou</span> <span
+                            class="price">139,-</span></div>
+                </div>
+
+                <!-- Pátek -->
+                <div class="day-menu">
+                    <h3>Pátek 30.1.</h3>
+                    <div class="menu-item"><span class="name">Kuřecí vývar s játrovou zavářkou</span> <span
+                            class="price">59,-</span></div>
+                    <div class="menu-item"><span class="name">Hovězí Stroganov s rýží</span> <span
+                            class="price">159,-</span></div>
+                    <div class="menu-item"><span class="name">Rybí karbanátky s přílohou</span> <span
+                            class="price">139,-</span></div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Rybárnička Lahůdky u Petra</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Intersection Observer for Pop-up Animation
+        const observerOptions = {
+            root: document.querySelector('#menuScroll'),
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                } else {
+                    entry.target.classList.remove('in-view');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.day-menu').forEach(day => {
+            observer.observe(day);
+        });
+
+        // Custom Slow Scroll Snap for Mouse Wheel
+        const menuScroll = document.getElementById('menuScroll');
+        let isScrolling = false;
+
+        function smoothScrollTo(element, target, duration) {
+            const start = element.scrollTop;
+            const change = target - start;
+            let startTime = null;
+
+            function animate(currentTime) {
+                if (!startTime) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+
+                // Ease In Out Quad - much smoother than linear
+                const progress = Math.min(timeElapsed / duration, 1);
+                const t = progress < 0.5 ? 4 * progress * progress * progress : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+                element.scrollTop = start + change * t;
+
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(animate);
+                } else {
+                    isScrolling = false;
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        menuScroll.addEventListener('wheel', (e) => {
+            if (isScrolling) return;
+
+            e.preventDefault();
+            const direction = e.deltaY > 0 ? 1 : -1;
+            const cardHeight = menuScroll.offsetHeight;
+            const currentScroll = menuScroll.scrollTop;
+
+            // Round to nearest card to ensure we don't drift
+            const currentCardIndex = Math.round(currentScroll / (cardHeight + 40));
+            const targetCardIndex = Math.max(0, Math.min(4, currentCardIndex + direction)); // 0-4 for 5 days
+            const targetScroll = targetCardIndex * (cardHeight + 40);
+
+            if (targetScroll === currentScroll && targetCardIndex === currentCardIndex) return;
+
+            isScrolling = true;
+            smoothScrollTo(menuScroll, targetScroll, 1000); // 1.0 second for ultra-slow fluidity
+        }, { passive: false });
+
+        // Disable standard snapping to let custom JS take over smoothly
+        menuScroll.style.scrollSnapType = 'none';
+        menuScroll.style.scrollBehavior = 'auto'; // Disable CSS smooth scroll to avoid conflict
+    </script>
+</body>
+
+</html>

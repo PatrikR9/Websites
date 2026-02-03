@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap');
+
+:root {
+    /* Brand Colors */
+    --primary-color: #df5046;
+    /* Original Red */
+    --secondary-color: #2C3E50;
+    /* Navy Blue */
+    --accent-light: #ecf0f1;
+
+    /* Text */
+    --text-color: #2C3E50;
+    --text-light: #7f8c8d;
+
+    /* Backgrounds */
+    --bg-color: #Fdfdfd;
+    --white: #ffffff;
+
+    /* Layout properties */
+    --max-width: 1100px;
+    --border-radius: 16px;
+    --shadow: 0 10px 20px rgba(44, 62, 80, 0.08);
+}
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    /* Recognized Sea-Themed Background (Anchors, Wheels, Fish, Starfish) */
+    background-image: url("data:image/svg+xml,%3Csvg width='300' height='300' viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23666666' stroke-width='1.5' stroke-opacity='0.08' stroke-linecap='round' stroke-linejoin='round'%3E%3C!-- Anchor --%3E%3Cpath d='M50 30 v30 M40 50 h20 M50 60 a15 15 0 0 0 15-15 M50 60 a15 15 0 0 1-15-15'/%3E%3Ccircle cx='50' cy='25' r='4'/%3E%3C!-- Ship Wheel --%3E%3Ccircle cx='240' cy='60' r='12'/%3E%3Ccircle cx='240' cy='60' r='4'/%3E%3Cpath d='M240 40 v40 M220 60 h40 M225.8 45.8 l28.4 28.4 M225.8 74.2 l28.4-28.4'/%3E%3C!-- Starfish --%3E%3Cpath d='M150 140 l5 15 l15 5 l-15 5 l-5 15 l-5-15 l-15-5 l15-5z' fill='%23666666' fill-opacity='0.05'/%3E%3C!-- Fish Group --%3E%3Cpath d='M80 220 c10-5 25 5 35 3 c-5 2-8 7-5 10 c-10-2-25-8-30-13z' fill='%23666666' fill-opacity='0.06'/%3E%3Cpath d='M110 240 c8 3 20-2 28 0 c-4-2-6-6-4-8 c-8 1-20 6-24 8z' fill='%23666666' fill-opacity='0.06'/%3E%3C!-- Waves --%3E%3Cpath d='M20 150 q20-10 40 0 t40 0'/%3E%3Cpath d='M180 250 q20-10 40 0 t40 0'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--secondary-color);
+    margin-bottom: 0.5em;
+    font-weight: 700;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+}
+
+/* Layout */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    /* Increased for the new logo */
+}
+
+/* Logo */
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo img {
+    height: 80px;
+    /* Standalone logo image */
+    width: auto;
+    border-radius: 0;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05) rotate(5deg);
+}
+
+/* Navigation */
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav-link {
+    font-weight: 600;
+    color: var(--secondary-color);
+    padding: 8px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    /* CRITICAL: Fix for word separation */
+    font-size: 0.95rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--white);
+    background-color: var(--primary-color);
+}
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--secondary-color);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Main Content */
+.content-section {
+    padding: 40px 0;
+}
+
+h1 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--secondary-color);
+}
+
+/* Feature Grid */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.feature-card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    padding: 12px;
+    background: var(--accent-light);
+    border-radius: 50%;
+    color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feature-icon svg {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+}
+
+.feature-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    color: var(--text-light);
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 6px rgba(44, 62, 80, 0.2);
+    margin-top: auto;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 100px;
+        gap: 0;
+        flex-direction: column;
+        background-color: var(--white);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+}

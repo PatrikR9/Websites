@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - RYBÁRNIČKA LAHŮDKY U PETRA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .contact-info-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info-card h2 {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info-card p {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .opening-hours span {
+            display: inline-block;
+            width: 80px;
+            font-weight: bold;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-top: 40px;
+            box-shadow: var(--shadow);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo_new.png" alt="Rybárnička Logo">
+                </a>
+            </div>
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Úvod</a></li>
+                    <li><a href="menu.html" class="nav-link">Denní Menu</a></li>
+                    <li><a href="kurzy.html" class="nav-link">Kurzy Vaření</a></li>
+                    <li><a href="poukazy.html" class="nav-link">Poukazy</a></li>
+                    <li><a href="fotoalbum.html" class="nav-link">Fotoalbum</a></li>
+                    <li><a href="kontakt.html" class="active nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="content-section">
+            <h1>Kontakt</h1>
+
+            <div class="contact-grid">
+                <!-- Address Details -->
+                <div class="contact-info-card">
+                    <h2>Kde nás najdete</h2>
+                    <p><strong>Rybárnička lahůdky U Petra</strong></p>
+                    <p>SNP 7/430</p>
+                    <p>MOST, 434 01</p>
+                    <br>
+                    <p>Telefon: <strong>775 828 290</strong></p>
+                    <p>E-mail: <a href="mailto:rybarnicka@seznam.cz">rybarnicka@seznam.cz</a></p>
+                </div>
+
+                <!-- Opening Hours -->
+                <div class="contact-info-card">
+                    <h2>Otevírací doba</h2>
+                    <div class="opening-hours">
+                        <p><span>Po - Pá:</span> 8:00 - 17:00</p>
+                        <p><span>So:</span> Zavřeno</p>
+                        <p><span>Ne:</span> Zavřeno</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Google Map -->
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2524.3469335661445!2d13.639352715739!3d50.50577797948332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4709f1e1e1e1e1e1%3A0x1e1e1e1e1e1e1e1e!2zU05QIDcvNDMwLCA0MzQgMDEgTW9zdA!5e0!3m2!1scs!2scz!4v1234567890"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Rybárnička Lahůdky u Petra</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
