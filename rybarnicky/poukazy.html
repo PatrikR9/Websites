@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dárkové Poukazy - RYBÁRNIČKA LAHŮDKY U PETRA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .voucher-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            padding: 40px 0;
+        }
+
+        .voucher-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+        }
+
+        .voucher-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            border: 2px solid var(--accent-light);
+            transition: all 0.3s ease;
+            position: relative;
+            /* overflow: hidden; Removed to allow dropdowns to overflow */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            min-height: 520px;
+            /* Ensure uniform height */
+        }
+
+        .voucher-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 35px rgba(223, 80, 70, 0.15);
+        }
+
+        .voucher-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--primary-color);
+        }
+
+        .voucher-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+
+        .voucher-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .voucher-desc {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-size: 1rem;
+            line-height: 1.5;
+            flex-grow: 1;
+            /* Push the button to the bottom */
+        }
+
+        .voucher-info-box {
+            background: #fff3f3;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin-top: 40px;
+            max-width: 800px;
+            text-align: center;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .voucher-info-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .voucher-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .course-selector-wrap,
+        .custom-select-wrapper {
+            margin: 0 auto 30px;
+            width: 100%;
+            max-width: 250px;
+        }
+
+        .select-selected.no-arrow::after {
+            display: none;
+        }
+
+        .static-value .select-selected {
+            cursor: default;
+            background-color: #f8f8f8;
+            border-color: #eee;
+        }
+
+        .static-value .select-selected:hover {
+            border-color: #eee;
+            background-color: #f8f8f8;
+        }
+
+        .primary-select {
+            border: 2px solid var(--accent-light);
+            background: var(--white);
+            font-weight: 600;
+            text-align: center;
+            text-align-last: center;
+            /* Center text in the dropdown */
+        }
+
+        .course-select-custom {
+            position: relative;
+            width: 100%;
+            max-width: 250px;
+            margin: 0 auto 30px;
+            text-align: left;
+            user-select: none;
+        }
+
+        .select-selected {
+            background-color: #fafafa;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            padding: 12px 15px;
+            color: var(--secondary-color);
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .select-selected:hover {
+            border-color: var(--primary-color);
+            background-color: #fff;
+        }
+
+        .select-selected::after {
+            content: "";
+            width: 12px;
+            height: 12px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23df5046' viewBox='0 0 16 16'%3E%3Cpath d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .select-selected.select-arrow-active::after {
+            transform: rotate(180deg);
+        }
+
+        .select-items {
+            position: absolute;
+            background-color: #fff;
+            top: 110%;
+            left: 0;
+            right: 0;
+            z-index: 99;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            max-height: 250px;
+            display: none;
+            padding: 8px;
+        }
+
+        .select-items div {
+            padding: 12px 15px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            color: var(--secondary-color);
+        }
+
+        .select-items div:hover {
+            background-color: #fff3f3;
+            color: var(--primary-color);
+        }
+
+        .select-hide {
+            display: none;
+        }
+
+        .select-show {
+            display: block;
+            animation: dropdownFade 0.3s ease;
+        }
+
+        @keyframes dropdownFade {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo_new.png" alt="Rybárnička Logo">
+                </a>
+            </div>
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Úvod</a></li>
+                    <li><a href="menu.html" class="nav-link">Denní Menu</a></li>
+                    <li><a href="kurzy.html" class="nav-link">Kurzy Vaření</a></li>
+                    <li><a href="poukazy.html" class="active nav-link">Poukazy</a></li>
+                    <li><a href="fotoalbum.html" class="nav-link">Fotoalbum</a></li>
+                    <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="content-section">
+            <h1>Dárkové Poukazy</h1>
+            <p
+                style="text-align: center; max-width: 700px; margin: 0 auto 40px; color: var(--text-light); font-size: 1.1rem;">
+                Darujte zážitek! Vyberte si hodnotu poukazu nebo rovnou pozvání na konkrétní téma kurzu.
+            </p>
+
+            <div class="voucher-section">
+                <div class="voucher-container">
+                    <!-- Consolidated Monetary Voucher -->
+                    <div class="voucher-card">
+                        <div class="voucher-tag">Peněžní poukaz</div>
+                        <div class="voucher-icon">🎁</div>
+
+                        <div class="custom-select-wrapper">
+                            <div class="course-select-custom" id="monetarySelect">
+                                <div class="select-selected">Hodnota 300,- Kč</div>
+                                <div class="select-items select-hide">
+                                    <div data-value="300">Hodnota 300,- Kč</div>
+                                    <div data-value="350">Hodnota 350,- Kč</div>
+                                    <div data-value="400">Hodnota 400,- Kč</div>
+                                    <div data-value="450">Hodnota 450,- Kč</div>
+                                    <div data-value="500">Hodnota 500,- Kč</div>
+                                    <div data-value="550">Hodnota 550,- Kč</div>
+                                    <div data-value="600">Hodnota 600,- Kč</div>
+                                </div>
+                                <input type="hidden" id="monetaryValue" value="300">
+                            </div>
+                        </div>
+
+                        <div class="voucher-value" id="displayMonetaryValue">300,- Kč</div>
+                        <p class="voucher-desc">Lze uplatnit na libovolný produkt nebo kurz v naší nabídce. Ideální jako
+                            flexibilní dárek.</p>
+                        <a href="kontakt.html?amount=300" id="monetaryOrderBtn" class="btn-primary">Objednat poukaz</a>
+                    </div>
+
+                    <!-- Option 2: Specific Course -->
+                    <div class="voucher-card">
+                        <div class="voucher-tag">Konkrétní kurz</div>
+                        <div class="voucher-icon">👨‍🍳</div>
+
+                        <div class="custom-select-wrapper">
+                            <div class="course-select-custom" id="customCourseSelect">
+                                <div class="select-selected">Mořské ryby a bylinky</div>
+                                <div class="select-items select-hide">
+                                    <div data-value="550-sea">Mořské ryby a bylinky</div>
+                                    <div data-value="590-shrimp">Variace krevet</div>
+                                    <div data-value="590-salmon">Losos na tři způsoby</div>
+                                    <div data-value="550-mussels">Delikátní slávky</div>
+                                    <div data-value="550-modern">Ryba moderně a jinak</div>
+                                </div>
+                                <input type="hidden" id="courseSelect" value="550-sea">
+                            </div>
+                        </div>
+
+                        <div class="voucher-value" id="coursePrice">550,- Kč</div>
+                        <p class="voucher-desc">Plná úhrada za vybrané téma. Obdarovaný neřeší doplatky a termín si
+                            vybere sám.</p>
+                        <a href="kontakt.html?course=sea" id="courseOrderBtn" class="btn-primary">Objednat kurz</a>
+                    </div>
+                </div>
+
+                <div class="voucher-info-box">
+                    <h3>Proč darovat poukaz?</h3>
+                    <p>Poukázky jsou ideálním dárkem pro všechny, kteří chtějí proniknout do tajů přípravy ryb.
+                        Obdarovaný si může sám vybrat termín, který mu nejlépe vyhovuje.</p>
+                    <p style="margin-top: 15px; font-weight: 600;">Zakoupíte u nás v prodejně nebo zašleme elektronicky.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Rybárnička Lahůdky u Petra</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Generic Custom Dropdown Logic
+        function setupCustomSelect(containerId, updateFunction) {
+            const customSelect = document.getElementById(containerId);
+            const selected = customSelect.querySelector('.select-selected');
+            const items = customSelect.querySelector('.select-items');
+            const hiddenInput = customSelect.querySelector('input[type="hidden"]');
+
+            selected.addEventListener('click', function (e) {
+                e.stopPropagation();
+                // Close other dropdowns first
+                document.querySelectorAll('.select-items').forEach(list => {
+                    if (list !== items) {
+                        list.classList.add('select-hide');
+                        list.classList.remove('select-show');
+                        list.previousElementSibling.classList.remove('select-arrow-active');
+                    }
+                });
+
+                this.classList.toggle('select-arrow-active');
+                items.classList.toggle('select-hide');
+                items.classList.toggle('select-show');
+            });
+
+            items.querySelectorAll('div').forEach(item => {
+                item.addEventListener('click', function () {
+                    const val = this.getAttribute('data-value');
+                    selected.innerText = this.innerText;
+                    hiddenInput.value = val;
+
+                    updateFunction(val);
+
+                    // Hide dropdown
+                    items.classList.add('select-hide');
+                    items.classList.remove('select-show');
+                    selected.classList.remove('select-arrow-active');
+                });
+            });
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function () {
+            document.querySelectorAll('.select-items').forEach(items => {
+                items.classList.add('select-hide');
+                items.classList.remove('select-show');
+                items.previousElementSibling.classList.remove('select-arrow-active');
+            });
+        });
+
+        // Initialize Monetary Select
+        setupCustomSelect('monetarySelect', function (val) {
+            const priceDisplay = document.getElementById('displayMonetaryValue');
+            const orderBtn = document.getElementById('monetaryOrderBtn');
+            priceDisplay.innerText = val + ",- Kč";
+            orderBtn.href = "kontakt.html?amount=" + val;
+        });
+
+        // Initialize Course Select
+        setupCustomSelect('customCourseSelect', function (val) {
+            const priceDisplay = document.getElementById('coursePrice');
+            const orderBtn = document.getElementById('courseOrderBtn');
+            const price = val.split('-')[0];
+            const courseSlug = val.split('-')[1];
+
+            priceDisplay.innerText = price + ",- Kč";
+            orderBtn.href = "kontakt.html?course=" + courseSlug;
+        });
+    </script>
+</body>
+
+</html>

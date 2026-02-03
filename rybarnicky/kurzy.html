@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurzy Vaření - RYBÁRNIČKA LAHŮDKY U PETRA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .course-card {
+            background: #fff;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border-left: 8px solid var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-card h2 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--accent-light);
+            padding-bottom: 10px;
+        }
+
+        .course-menu {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .course-menu li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .course-menu li::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            position: absolute;
+            left: 10px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            margin-top: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .course-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            background: var(--accent-light);
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+
+        .course-details {
+            margin-top: 15px;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .registration-box {
+            background: var(--secondary-color);
+            color: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .registration-box h2 {
+            color: white;
+        }
+
+        .registration-box p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo_new.png" alt="Rybárnička Logo">
+                </a>
+            </div>
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Úvod</a></li>
+                    <li><a href="menu.html" class="nav-link">Denní Menu</a></li>
+                    <li><a href="kurzy.html" class="active nav-link">Kurzy Vaření</a></li>
+                    <li><a href="poukazy.html" class="nav-link">Poukazy</a></li>
+                    <li><a href="fotoalbum.html" class="nav-link">Fotoalbum</a></li>
+                    <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="content-section">
+            <h1>Kurzy Vaření Ryb</h1>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem;">
+                Pořádáme kurzy vaření ryb, kde se naučíte proč ryby jíst a jak je správně upravit. Cena kurzovného je od
+                450,- Kč.
+            </p>
+
+            <!-- Kurz 1 -->
+            <div class="course-card">
+                <h2>Mořské ryby a bylinky</h2>
+                <ul class="course-menu">
+                    <li>1. Mořská štika na bílém víně a bylinkách</li>
+                    <li>2. Tilápie v citrónově - koprové marinádě</li>
+                    <li>3. Aljašská treska na rozmarýnu s česnekovým dresinkem</li>
+                    <li>Tuňákový krém na salátové okurce</li>
+                </ul>
+                <div class="course-price">Cena kurzu: 550,- Kč</div>
+            </div>
+
+            <!-- Kurz 2 -->
+            <div class="course-card">
+                <h2>Variace krevet</h2>
+                <ul class="course-menu">
+                    <li>1. Krevetový koktejl s topinkou</li>
+                    <li>2. Krevetový špíz marinovaný s ledovým salátem, dresinkem a pečivem</li>
+                    <li>3. Krevetky na víně, zázvoru a cherry rajčátkách, jako přílohu podáváme pečivo</li>
+                </ul>
+                <div class="course-price">Cena kurzu: 590,- Kč</div>
+            </div>
+
+            <!-- Kurz 3 -->
+            <div class="course-card">
+                <h2>Losos na tři způsoby</h2>
+                <ul class="course-menu">
+                    <li>1. Ledový salát se smaženým lososem, s třtinovým cukrem se skořicí</li>
+                    <li>2. Tagliatelle s lososovou omáčkou s bylinkami</li>
+                    <li>3. Smažený losos s parmezánovou krustou, zeleninovým salátem a dresinkem</li>
+                </ul>
+                <div class="course-price">Cena kurzu: 590,- Kč</div>
+            </div>
+
+            <!-- Kurz 4 -->
+            <div class="course-card">
+                <h2>Delikátní slávky</h2>
+                <ul class="course-menu">
+                    <li>1. Slávky na tomatovém lůžku</li>
+                    <li>2. Grilované mušle s parmazánovou krustou</li>
+                    <li>3. Slávky na bílém víně a na bylinkách</li>
+                </ul>
+                <div class="course-price">Cena kurzu: 550,- Kč</div>
+            </div>
+
+            <!-- Kurz 5 -->
+            <div class="course-card">
+                <h2>Ryba moderně a jinak</h2>
+                <ul class="course-menu">
+                    <li>1. Suši na jiný způsob</li>
+                    <li>2. Tatarák z čerstvého lososa</li>
+                    <li>3. Rybí hranolky s dipem</li>
+                    <li>4. Rybí koláč s žampiony</li>
+                </ul>
+                <div class="course-price">Cena kurzu: 550,- Kč</div>
+            </div>
+
+            <div class="course-details" style="text-align: center; margin-top: 30px;">
+                <p><strong>Kurzy se konají při minimálním počtu 6 a více osob.</strong></p>
+                <p>Délka všech kurzů je cca 2 hodiny.</p>
+                <p>Co sebou? Dobrou náladu, papír a tužku.</p>
+            </div>
+
+            <div class="registration-box">
+                <h2>Přihlášení na kurzy</h2>
+                <p>Na kurz se můžete přihlásit na tel. čísle: <strong>728 030 975</strong></p>
+                <p>PO - PÁ od 8.00 - 16.00 hod.</p>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Rybárnička Lahůdky u Petra</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
